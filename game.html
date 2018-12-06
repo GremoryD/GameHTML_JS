@@ -18,14 +18,24 @@
 		var canvas= document.getElementById('canvas');
 		var ctx = canvas.getContext("2d");
 
+		var posX=20;
+		var speedX=5;
+		var posY=20;
+		var speedY=2;
+
 		function draw(){
-			//https://www.w3schools.com/tags/canvas_arc.asp
+			posX+=speedX;
+			posY+=speedY;
+
+			ctx.clearRect(0,0,canvas.width,canvas.height);
 			ctx.beginPath();
-			ctx.arc(50,50,20,0,Math.PI*2,false);
+			ctx.arc(posX,posY,20,0,Math.PI*2,false);
 			ctx.fillStyle="red";
 			ctx.fill();
 			ctx.closePath(); 
 		}
+
+		setInterval(draw,1000/30);
 
 		draw();
 
